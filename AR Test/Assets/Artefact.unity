@@ -2084,7 +2084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16000001, y: 0.2}
   m_AnchorMax: {x: 0.16000001, y: 0.2}
-  m_AnchoredPosition: {x: -11.6, y: 141.4}
+  m_AnchoredPosition: {x: 17, y: 141.4}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697863499
@@ -2231,6 +2231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73489916b47a4b845b57ce237ee46d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airship: {fileID: 0}
+  ImgBehaviour: {fileID: 0}
+  textBoxManager: {fileID: 0}
+  joystick: {fileID: 1601995421}
 --- !u!54 &1985408553
 Rigidbody:
   m_ObjectHideFlags: 0

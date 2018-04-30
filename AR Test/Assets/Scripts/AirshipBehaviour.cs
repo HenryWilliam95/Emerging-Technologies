@@ -7,19 +7,19 @@ public class AirshipBehaviour : MonoBehaviour {
 
     public bool takeOff = false;
     public bool shouldSpin = false;
-    bool visibleLastFrame;
+    bool visibleLastFrame;  // Set a bool to tell Unity3D if this object has been tracked before
 
     public float speed = 4;
 
     private Rigidbody rb;
     //private Quaternion a;
 
-    public Animator airship;
-    public ImageTargetBehaviour ImgBehaviour;
+    public Animator airship;                    // Set up the animator for the Airship
+    public ImageTargetBehaviour ImgBehaviour;   // Allow Vuforia to track this object correctly
 
     public GameObject R34;
 
-    public TextBoxManager textBoxManager;
+    public TextBoxManager textBoxManager;       // Reference to the textbox to update if it should be visible or not 
 
     
 
@@ -41,19 +41,24 @@ public class AirshipBehaviour : MonoBehaviour {
 
         //rb.AddForce(move * speed);
 
+        // Loop through all the currently trackable objects
         foreach (TrackableBehaviour track in TrackerManager.Instance.GetStateManager().GetTrackableBehaviours())
         {
+            // If this image is currently being tracked
             if (track == ImgBehaviour)
             {
                 if (track.CurrentStatus == TrackableBehaviour.Status.TRACKED || track.CurrentStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
                 {
+                    // Tell the console this object was found by the AR camera
                     print("Tracked");
                     if (visibleLastFrame == false)
                     {
+                        // Start the take off animation and set the visible bool to true
                         print("Found image");
                         TakeOff();
                         visibleLastFrame = true;
 
+                        // Activate the text box to show information about this object
                         textBoxManager.isActive = true;
                         textBoxManager.EnableTextBox();
                     }
@@ -65,9 +70,11 @@ public class AirshipBehaviour : MonoBehaviour {
                         print("Lost image");
                         visibleLastFrame = false;
 
+                        // Disable the text box once this object has been lost and is no longer being tracked
                         textBoxManager.isActive = false;
                         textBoxManager.DisableTextBox();
 
+                        // If Unity3D has reached the end of the file, loop back round again incase user wants to reread anything
                         if (textBoxManager.currentLine > textBoxManager.endLine)
                         {
                             textBoxManager.currentLine = 0;

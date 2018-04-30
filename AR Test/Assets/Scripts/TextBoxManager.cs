@@ -41,23 +41,27 @@ public class TextBoxManager : MonoBehaviour
 
     private void Update()
     {
-
+        // If the textbox isn't currently active, bail out of the update sequence
         if (!isActive)
             return;
 
+        // Update the UI text to display the current line of the text file
         text.text = textLines[currentLine];
 
+        // Move to the next line if the mouse is clicked or phone screen is tapped
         if (Input.GetMouseButtonDown(0))
         {
             currentLine++;
         }
 
+        // If we have reached the end of the file disable the text box
         if (currentLine > endLine)
         {
             DisableTextBox();
         }
     }
 
+    // Functions to enable and disable textbox
     public void EnableTextBox()
     {
         textBox.SetActive(true);
@@ -68,6 +72,8 @@ public class TextBoxManager : MonoBehaviour
         textBox.SetActive(false);
     }
 
+    // Function to load in new files depending on what object is currently being shown
+    // Was unable to get this to work with Vuforia, works with normal Unity3D.  
     public void LoadTextFile(TextAsset text)
     {
         if (text != null)
