@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="L33_wreck" size="5.000000 3.234375" />
+    <ImageTarget name="R34-large-adj" size="5.000000 2.422384" />
+    <ImageTarget name="R34Shed" size="5.000000 2.470501" />
+    <ImageTarget name="Control_Car" size="5.000000 2.793388" />
+    <ImageTarget name="R342" size="5.000000 3.115234" />
+    <ImageTarget name="Class-Barbarian" size="6.000000 8.495238" />
+    <ImageTarget name="Zombie" size="6.000000 3.375000" />
+    <ImageTarget name="R34" size="6.000000 3.738281" />
+    <ImageTarget name="ARpic3" size="6.000000 9.666667" />
+    <ImageTarget name="ARpic2" size="6.000000 8.375000" />
+    <ImageTarget name="ARpic" size="6.000000 8.195122" />
+  </Tracking>
+</QCARConfig>
